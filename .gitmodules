@@ -45,7 +45,7 @@
         url = https://github.com/ESCOMP/FMS_interface
         fxDONOTUSEurl = https://github.com/ESCOMP/FMS_interface
         fxrequired = ToplevelRequired
-        fxtag = fi_240807
+        fxtag = fi_240828
 
 [submodule "share"]
         path = share
