@@ -77,10 +77,10 @@
 
 [submodule "mom"]
         path = components/mom
-        url = https://github.com/ESCOMP/MOM_interface
-        fxDONOTUSEurl = https://github.com/ESCOMP/MOM_interface
+        url = https://github.com/CROCODILE-CESM/MOM_interface
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/MOM_interface
         fxrequired = ToplevelRequired
-        fxtag = mi_240805
+        fxtag = crocodile
 
 [submodule "cism"]
         path = components/cism
@@ -98,10 +98,10 @@
 
 [submodule "cmeps"]
         path = components/cmeps
-        url = https://github.com/ESCOMP/CMEPS.git
-        fxDONOTUSEurl = https://github.com/ESCOMP/CMEPS.git
+        url = https://github.com/CROCODILE-CESM/CMEPS
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/CMEPS
         fxrequired = ToplevelRequired
-        fxtag = cmeps1.0.13
+        fxtag = crocodile
 
 [submodule "rtm"]
         path = components/rtm
