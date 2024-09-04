@@ -30,7 +30,7 @@
         path = ccs_config
         url = https://github.com/CROCODILE-CESM/ccs_config_cesm.git
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/ccs_config_cesm.git
-        fxtag = crocodile
+        fxtag = ccs_config_cesm1_0_4.crocodile_001
         fxrequired = ToplevelRequired
 
 [submodule "cime"]
@@ -80,7 +80,7 @@
         url = https://github.com/CROCODILE-CESM/MOM_interface
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/MOM_interface
         fxrequired = ToplevelRequired
-        fxtag = crocodile
+        fxtag = mi_240805.crocodile_001
 
 [submodule "cism"]
         path = components/cism
@@ -94,14 +94,14 @@
         url = https://github.com/CROCODILE-CESM/CDEPS
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/CDEPS
         fxrequired = ToplevelRequired
-        fxtag = crocodile
+        fxtag = cdeps1_0_45.crocodile_001
 
 [submodule "cmeps"]
         path = components/cmeps
         url = https://github.com/CROCODILE-CESM/CMEPS
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/CMEPS
         fxrequired = ToplevelRequired
-        fxtag = crocodile
+        fxtag = cmeps1_0_13.crocodile_001
 
 [submodule "rtm"]
         path = components/rtm
