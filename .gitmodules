@@ -94,14 +94,14 @@
         url = https://github.com/CROCODILE-CESM/CDEPS
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/CDEPS
         fxrequired = ToplevelRequired
-        fxtag = workshop_2025.001
+        fxtag = workshop_2025.002
 
 [submodule "cmeps"]
         path = components/cmeps
         url = https://github.com/CROCODILE-CESM/CMEPS.git
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/CMEPS.git
         fxrequired = ToplevelRequired
-	fxtag = cmeps1.1.10
+        fxtag = workshop_2025.001
 
 [submodule "rtm"]
         path = components/rtm
