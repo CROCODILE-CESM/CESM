@@ -30,7 +30,7 @@
         path = ccs_config
         url = https://github.com/CROCODILE-CESM/ccs_config_cesm.git
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/ccs_config_cesm.git
-        fxtag = ccs_config_cesm1.0.57
+        fxtag = workshop_2025.001
         fxrequired = ToplevelRequired
 
 [submodule "cime"]
@@ -91,10 +91,10 @@
 
 [submodule "cdeps"]
         path = components/cdeps
-        url = https://github.com/ESCOMP/CDEPS
-        fxDONOTUSEurl = https://github.com/ESCOMP/CDEPS
+        url = https://github.com/CROCODILE-CESM/CDEPS
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/CDEPS
         fxrequired = ToplevelRequired
-        fxtag = cdeps1.0.80
+        fxtag = workshop_2025.001
 
 [submodule "cmeps"]
         path = components/cmeps
