@@ -28,8 +28,8 @@
 
 [submodule "ccs_config"]
         path = ccs_config
-        url = https://github.com/ESMCI/ccs_config_cesm.git
-        fxDONOTUSEurl = https://github.com/ESMCI/ccs_config_cesm.git
+        url = https://github.com/CROCODILE-CESM/ccs_config_cesm.git
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/ccs_config_cesm.git
         fxtag = ccs_config_cesm1.0.57
         fxrequired = ToplevelRequired
 
@@ -37,7 +37,7 @@
         path = cime
         url = https://github.com/ESMCI/cime
         fxDONOTUSEurl = https://github.com/ESMCI/cime
-	fxtag = cime6.1.116
+	fxtag = cime6.1.118
         fxrequired = ToplevelRequired
 
 [submodule "fms"]
@@ -77,8 +77,8 @@
 
 [submodule "mom"]
         path = components/mom
-        url = https://github.com/ESCOMP/MOM_interface
-        fxDONOTUSEurl = https://github.com/ESCOMP/MOM_interface
+        url = https://github.com/CROCODILE-CESM/MOM_interface
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/MOM_interface
         fxrequired = ToplevelRequired
         fxtag = mi_250519
 
@@ -98,8 +98,8 @@
 
 [submodule "cmeps"]
         path = components/cmeps
-        url = https://github.com/ESCOMP/CMEPS.git
-        fxDONOTUSEurl = https://github.com/ESCOMP/CMEPS.git
+        url = https://github.com/CROCODILE-CESM/CMEPS.git
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/CMEPS.git
         fxrequired = ToplevelRequired
 	fxtag = cmeps1.1.10
 
