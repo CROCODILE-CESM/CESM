@@ -30,7 +30,7 @@
         path = ccs_config
         url = https://github.com/CROCODILE-CESM/ccs_config_cesm.git
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/ccs_config_cesm.git
-        fxtag = most_recent_ccs_config_with_regional_changes
+        fxtag = regional
         fxrequired = ToplevelRequired
 
 [submodule "cime"]
@@ -80,7 +80,7 @@
         url = https://github.com/CROCODILE-CESM/MOM_interface
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/MOM_interface
         fxrequired = ToplevelRequired
-        fxtag = merged_rcc_with_tests
+        fxtag = regional
 
 [submodule "cism"]
         path = components/cism
@@ -91,8 +91,8 @@
 
 [submodule "cdeps"]
         path = components/cdeps
-        url = https://github.com/mnlevy1981/CDEPS
-        fxDONOTUSEurl = https://github.com/mnlevy1981/CDEPS
+        url = https://github.com/CROCODILE-CESM/CDEPS
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/CDEPS
         fxrequired = ToplevelRequired
         fxtag = add_glofas
 
