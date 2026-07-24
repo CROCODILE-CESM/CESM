@@ -37,7 +37,7 @@
         path = cime
         url = https://github.com/hkershaw-brown/cime.git
         fxDONOTUSEurl = https://github.com/hkershaw-brown/cime.git
-	fxtag = vdart-cime6.1.127
+	fxtag = vdart-cime6.2.2
         fxrequired = ToplevelRequired
 
 [submodule "fms"]
@@ -101,7 +101,7 @@
         url = https://github.com/hkershaw-brown/CMEPS.git
         fxDONOTUSEurl = https://github.com/hkershaw-brown/CMEPS.git
         fxrequired = ToplevelRequired
-	fxtag = vdart-cmeps1.1.17
+	fxtag = vdart-cmeps1.1.48
 
 [submodule "rtm"]
         path = components/rtm
@@ -178,4 +178,4 @@
 	url = https://github.com/CROCODILE-CESM/DART_interface.git
 	fxDONOTUSEurl = https://github.com/CROCODILE-CESM/DART_interface.git
         fxrequired = ToplevelRequired
-        fxtag = croc-0.0.3
+        fxtag = croc-0.0.4
