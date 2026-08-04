@@ -80,7 +80,7 @@
         url = https://github.com/CROCODILE-CESM/MOM_interface
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/MOM_interface
         fxrequired = ToplevelRequired
-        fxtag = regional
+        fxtag = regional_da.01
 
 [submodule "cism"]
         path = components/cism
