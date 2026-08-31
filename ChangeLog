@@ -512,6 +512,855 @@ mom
 
 
 ==============================================================
+Tag name: cesm3_0_beta09
+Originator(s): CSEG
+Date: 4th August 2026
+One-line Summary: Component updates
+
+Answer Changes introduced with this tag when compared to cesm0_0_beta08:
+CAM
+	Fix energy bugs in physics-dynamics coupling, RRTMGP
+	diagnostics, and ZM scheme
+	Aqueous chemistry fixes
+	MTt4s namelist defaults
+	CLUBB update and clubb_intr improvements
+	Implement POLARCAP & NATL grids + L58/L93 inic for all SE-VR grids + ne120pg3
+	Update MPAS dynamical core to version 8.4.0
+CTSM
+	Answers change more than roundoff for hillslope hydrology cases.
+	Update CLM6 paramfiles for uncoupled and coupled cases, plus add new paramfile for hillslope hydrology cases.
+	bug fix to the FATES land use driver input code
+	FATES update fixing some failing LUH2 tests
+mizuRoute
+	Some changes to answers with science bug-fixes
+CISM
+	Add support for the ERP test.  Causes answer changes for active CISM
+MOM6 
+	Latest MOM6 configuration changes
+	Use ice heat capacity and fixed temperature for ice runoff enthalpy PRs #647.
+	Bring in latest MARBL tuning and support
+CMEPS
+	Add water tracers.  Changes answers for X compsets.
+	Reduce the memory usage.  Answer changes for lnd2rof mapping file.
+
+mizuRoute
+	Some changes to answers with science bug-fixes
+
+
+Problems identified after tag creation:
+
+BHISTC_LT_DART test failing due to misconfiguration.
+FAIL ERP_Ln9.f09_f09_mg17.FCnudged_GC.derecho_intel.cam-outfrq9s COMPARE_base_rest
+FAIL SSPMATRIXCN_Ly5_Mmpi-serial.1x1_numaIA.I2000Clm60BgcCropQianRs.derecho_intel.clm-ciso_monthly RUN time=3682 
+FAIL ERR_Ld5.ne30pg3_t232.BLT1850.derecho_gnu.allactive-defaultio TPUTCOMP Could not get default throughput
+     med.log not being saved to baselines
+FAIL LILACSMOKE_D_Ld2.f10_f10_mg37.I2000Ctsm50NwpSpAsRs.derecho_intel.clm-lilac MODEL_BUILD time=0
+     Only works with ctsm stand alone clone.
+
+FAIL ERP_D_Ln9.C48_C48_mg17.QPC6.derecho_intel.cam-outfrq9s SHAREDLIB_BUILD failed to initialize
+                Issue with FMS version support between cam and mom
+FAIL PET_PM.ne30pg3_t232.BMT1850.derecho_gnu.allactive-defaultiomi RUN time=329
+FAIL PET_PM.ne30pg3_t232.BMT1850.derecho_intel.allactive-defaultiomi RUN time=301
+                Issue with MOM openmp support
+PEND MKSURFDATAESMF_P128x1.f10_f10_mg37.I1850Clm50BgcCrop.derecho_intel SHAREDLIB_BUILD RERUN
+                Issue with special enviroment being needed
+
+============================================================
+Tag name: cesm3_0_alpha09g
+Originator(s): CSEG
+Date: 17th July 2026
+One-line Summary: MOM6 update
+
+ccs_config                             https://github.com/ESMCI/ccs_config_cesm/tree/ccs_config_cesm1.0.87  --
+cime                                   https://github.com/ESMCI/cime/tree/cime6.4.1                         **
+components/fms                         https://github.com/ESCOMP/FMS_interface/tree/fi_260310               --
+share                                  https://github.com/ESCOMP/CESM_share/tree/share1.1.21                **
+components/cam                         https://github.com/ESCOMP/CAM/cam6_4_187                             --
+components/clm                         https://github.com/ESCOMP/ctsm/tree/ctsm5.4.042                      --
+components/cice                        https://github.com/ESCOMP/CESM_CICE/tree/cesm3_cice6_6_3_16          --
+components/mom                         https://github.com/ESCOMP/MOM_interface/mi_260715                    **
+components/cism                        https://github.com/ESCOMP/cism-wrapper/tree/cismwrap_2_2_015         --
+components/cdeps                       https://github.com/ESCOMP/CDEPS/tree/cdeps1.0.101                    --
+components/cmeps                       https://github.com/ESCOMP/CMEPS/tree/cmeps1.1.54                     **
+components/rtm                         https://github.com/ESCOMP/rtm/tree/rtm1_0_89                         --
+components/ww3                         https://github.com/ESCOMP/WW3-CESM/tree/main_0.1.0                   --
+components/mizuroute                   https://github.com/ESCOMP/mizuRoute/tree/cesm-coupling.v3.1.1        --
+components/mosart                      https://github.com/ESCOMP/mosart/tree/mosart1_1_13                   --
+libraries/parallelio                   https://github.com/NCAR/ParallilIO/tree/pio2_6_8                     --
+libraries/mpi-serial                   https://github.com/ESMCI/mpi-serial/tree/MPIserial_2.5.0             --
+libraries/tuv-x                        https://github.com/NCAR/tuv-x/tree/v0.14.3                           --
+tools/statistical_ensemble_test/pyCECT https://github.com/NCAR/PyCECT/tree/3.2.1                            --
+tools/CUPiD                            https://github.com/NCAR/CUPiD/tree/v0.5.1                            --
+
+cime
+    Chris Fischer 2026-07-17 - cime6.4.1 - cime (cesm3_0_alpha09g)
+    https://github.com/ESMCI/cime/tags/cime6.4.1
+
+    Selectors should work at the machine object level automatically
+
+
+cmeps
+    Chris Fischer 2026-07-17 - cmeps1.1.54 - src/drivers/nuopc/ (cesm3_0_alpha09g)
+    https://github.com/ESCOMP/CMEPS/tags/cmeps1.1.54
+
+    Allow skipping checks of some tracer fields
+
+
+mom
+    Michael Levy 2026-07-14 - mi_260715 - components/mom (cesm3_0_alpha09g)
+    https://github.com/ESCOMP/MOM_interface/tags/mi_260715
+
+    * Fix issue in dimensional scaling test when waves were active (different KPP path)
+    * Bring in latest MARBL tuning and support for MARBL compsets on tx2_3v3 grid
+    * Merge latest mom-ocean:main into the NCAR fork of MOM6
+
+
+share
+    Chris Fischer 2026-07-13 - share1.1.21 - share (cesm3_0_alpha09g)
+    https://github.com/ESCOMP/CESM_share/tags/share1.1.21
+
+    Allow skipping checks of certain tracer variables
+
+============================================================
+Tag name: cesm3_0_alpha09f
+Originator(s): CSEG
+Date: 13th July 2026
+One-line Summary: CO2 compset name updates
+
+ccs_config                             https://github.com/ESMCI/ccs_config_cesm/tree/ccs_config_cesm1.0.87  --
+cime                                   https://github.com/ESMCI/cime/tree/cime6.4.0                         --
+components/fms                         https://github.com/ESCOMP/FMS_interface/tree/fi_260310               --
+share                                  https://github.com/ESCOMP/CESM_share/tree/share1.1.20                --
+components/cam                         https://github.com/ESCOMP/CAM/cam6_4_187                             **
+components/clm                         https://github.com/ESCOMP/ctsm/tree/ctsm5.4.042                      --
+components/cice                        https://github.com/ESCOMP/CESM_CICE/tree/cesm3_cice6_6_3_16          --
+components/mom                         https://github.com/ESCOMP/MOM_interface/mi_260626                    --
+components/cism                        https://github.com/ESCOMP/cism-wrapper/tree/cismwrap_2_2_015         --
+components/cdeps                       https://github.com/ESCOMP/CDEPS/tree/cdeps1.0.101                    **
+components/cmeps                       https://github.com/ESCOMP/CMEPS/tree/cmeps1.1.53                     --
+components/rtm                         https://github.com/ESCOMP/rtm/tree/rtm1_0_89                         --
+components/ww3                         https://github.com/ESCOMP/WW3-CESM/tree/main_0.1.0                   --
+components/mizuroute                   https://github.com/ESCOMP/mizuRoute/tree/cesm-coupling.v3.1.1        --
+components/mosart                      https://github.com/ESCOMP/mosart/tree/mosart1_1_13                   --
+libraries/parallelio                   https://github.com/NCAR/ParallilIO/tree/pio2_6_8                     --
+libraries/mpi-serial                   https://github.com/ESMCI/mpi-serial/tree/MPIserial_2.5.0             --
+libraries/tuv-x                        https://github.com/NCAR/tuv-x/tree/v0.14.3                           --
+tools/statistical_ensemble_test/pyCECT https://github.com/NCAR/PyCECT/tree/3.2.1                            --
+tools/CUPiD                            https://github.com/NCAR/CUPiD/tree/v0.5.1                            --
+
+cam
+    Cheryl Craig 2026-06-23 - cam6_4_187 - components/cam (cesm3_0_alpha09f)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_xxx
+
+    Bill Sack's PR: #1584
+
+    Change specification for CO2 concentration-driven compsets
+
+
+cdeps
+    Chris Fischer 2026-07-16 - cdeps1.0.101 - components/cdeps (cesm3_0_alpha09f)
+    https://github.com/ESCOMP/CDEPS/tags/cdeps1.0.101
+
+    No longer need to allow for C/E at end of time period
+
+
+cesm
+    Chris Fischer 2026-07-14 - cesm3_0_alpha09f - (cesm3_0_alpha09f)
+    https://github.com/ESCOMP/cesm/tags/cesm3_0_alpha09f
+
+    Change long name specifier for CO2 forcings
+
+    https://github.com/ESCOMP/CESM/pull/407
+
+
+============================================================
+Tag name: cesm3_0_alpha09e
+Originator(s): CSEG
+Date: 13th July 2026
+One-line Summary: CAM updates
+
+ccs_config                             https://github.com/ESMCI/ccs_config_cesm/tree/ccs_config_cesm1.0.87  **
+cime                                   https://github.com/ESMCI/cime/tree/cime6.4.0                         **
+components/fms                         https://github.com/ESCOMP/FMS_interface/tree/fi_260310               --
+share                                  https://github.com/ESCOMP/CESM_share/tree/share1.1.20                --
+components/cam                         https://github.com/ESCOMP/CAM/cam6_4_186                             **
+components/clm                         https://github.com/ESCOMP/ctsm/tree/ctsm5.4.042                      --
+components/cice                        https://github.com/ESCOMP/CESM_CICE/tree/cesm3_cice6_6_3_16          --
+components/mom                         https://github.com/ESCOMP/MOM_interface/mi_260626                    --
+components/cism                        https://github.com/ESCOMP/cism-wrapper/tree/cismwrap_2_2_015         --
+components/cdeps                       https://github.com/ESCOMP/CDEPS/tree/cdeps1.0.100                    **
+components/cmeps                       https://github.com/ESCOMP/CMEPS/tree/cmeps1.1.53                     **
+components/rtm                         https://github.com/ESCOMP/rtm/tree/rtm1_0_89                         --
+components/ww3                         https://github.com/ESCOMP/WW3-CESM/tree/main_0.1.0                   --
+components/mizuroute                   https://github.com/ESCOMP/mizuRoute/tree/cesm-coupling.v3.1.1        --
+components/mosart                      https://github.com/ESCOMP/mosart/tree/mosart1_1_13                   --
+libraries/parallelio                   https://github.com/NCAR/ParallilIO/tree/pio2_6_8                     --
+libraries/mpi-serial                   https://github.com/ESMCI/mpi-serial/tree/MPIserial_2.5.0             --
+libraries/tuv-x                        https://github.com/NCAR/tuv-x/tree/v0.14.3                           --
+tools/statistical_ensemble_test/pyCECT https://github.com/NCAR/PyCECT/tree/3.2.1                            --
+tools/CUPiD                            https://github.com/NCAR/CUPiD/tree/v0.5.1                            --
+
+cam
+    Cheryl Craig 2026-07-06 - cam6_4_186 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_186
+
+    Steve Goldhaber's PR
+
+    Do not create two CO2 tracers
+
+
+    Francis Vitt 2026-06-29 - cam6_4_185 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_185
+
+    Fix wator vapor upper boundary bug
+
+
+    Haipeng Lin 2026-06-23 - cam6_4_184 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_184
+
+    Complete CCPPization of Beljaars orographic form drag scheme; cleanup
+
+
+    Haipeng Lin 2026-06-22 - cam6_4_183 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_183
+
+    Complete CCPPization of cloud fraction for two-moment microphys (cldfrc2m) and extend Derecho CARMA test
+
+
+    Haipeng Lin 2026-06-22 - cam6_4_182 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_182
+
+    For Francis Vitt
+
+    Updates to CAM build of TUV-X lib
+
+
+    Cheryl Craig 2026-06-11 - cam6_4_181 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_181
+
+    Modified config_archive.xml to archive CAM+DART files
+
+
+    Cheryl Craig 2026-06-11 - cam6_4_180 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_180
+
+    For Francis Vitt
+
+    Analytic initial conditions water species
+
+
+    Haipeng Lin 2026-06-02 - cam6_4_179 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_179
+
+    Update atmos_phys to atmos_phys0_22_003
+
+    Allow moving mountain gravity wave parameterization to run with deep convection disabled
+
+
+    Haipeng Lin 2026-06-01 - cam6_4_178 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_178
+
+    Update atmos_phys to atmos_phys0_22_001
+
+
+    Haipeng Lin 2026-06-01 - cam6_4_177 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_177
+
+    For Francis Vitt:
+
+    Generalize cloud chemistry
+
+
+    Cheryl Craig 2026-05-28 - cam6_4_176 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_176
+
+    COSP-RTTOV integration with CAM
+
+
+    Haipeng Lin 2026-05-22 - cam6_4_175 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_175
+
+    Complete CCPPization of CAM5 UW (diag_TKE) PBL scheme; cleanup to vertical_diffusion_tend
+
+
+    Haipeng Lin 2026-05-22 - cam6_4_174 - components/cam (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_174
+
+    For Kuan-Chih Wang:
+
+    Update MPAS dynamical core to version 8.4.0
+
+
+ccs_config
+    Chris Fischer 2026-07-13 - ccs_config_cesm1.0.87 - ccs_config (cesm3_0_alpha09e)
+    https://github.com/ESMCI/ccs_config_cesm/tags/ccs_config_cesm1.0.87
+
+    Remove tutorial queue.
+
+
+    Chris Fischer 2026-07-13 - ccs_config_cesm1.0.86 - ccs_config (cesm3_0_alpha09e)
+    https://github.com/ESMCI/ccs_config_cesm/tags/ccs_config_cesm1.0.86
+
+    Add support for the GloFAS runoff grid
+
+
+cdeps
+    Chris Fischer 2026-07-13 - cdeps1.0.100 - components/cdeps (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CDEPS/tags/cdeps1.0.100
+
+    cdeps1.0.100: Reduce the memory usage that is important for ne1024 simulation
+    cdeps1.0.99 : Fix cplhist test
+    cdeps1.0.98 : Add glofas
+    cdeps1.0.97 : Support JRA55do in datm
+
+
+cime
+    Chris Fischer 2026-07-13 - cime6.3.3 - cime (cesm3_0_alpha09e)
+    https://github.com/ESMCI/cime/tags/cime6.3.3
+
+    cime6.4.0 : Refactor core foundation
+    cime6.3.12: Add wait_for_tests to the list of linked Tools
+    cime6.3.11: docs: remove model-specific references from documentation
+    cime6.3.10: Much better support for ninja cmake backend
+    cime6.3.9 : Do NOT auto-pass first job
+    cime6.3.8 : For batched builds, use the whole node 
+    cime6.3.7 : Fix get_ts_synopsis catch-all triggered by bless trailer after PASS
+    cime6.3.6 : Fuse the build phase for batched builds.
+    cime6.3.5 : For share-exe test suites, allow specification of which case to use 
+    cime6.3.4 : Add ability to offload CIME builds to batch system
+    cime6.3.3 : A couple minor fixes.
+    cime6.3.2 : CIME DART testing
+    cime6.3.1 : Remove Perl XML dependency (replacing with Lite)
+    cime6.3.0 : add --driver option to jenkins_generic_job
+     
+
+
+cmeps
+    Chris Fischer 2026-07-13 - cmeps1.1.53 - src/drivers/nuopc/ (cesm3_0_alpha09e)
+    https://github.com/ESCOMP/CMEPS/tags/cmeps1.1.53
+
+    cmeps1.1.53: Improve error message for problematic multi-instance PE layouts
+    cmeps1.1.52: Reduce the memory usage that is important for ne1024 simulation
+                 Answer changes for lnd2rof mapping file.  Not used in typical cases.
+    cmeps1.1.51: Fix two unitialized variables found w/ valgrind
+    cmeps1.1.50: Fix for DGLC with SLND
+    cmeps1.1.49: Sync w/ latest UFS changes
+
+
+============================================================
+Tag name: cesm3_0_alpha09d
+Originator(s): CSEG
+Date: 26th June 2026
+One-line Summary: Tutorial alpha tag
+
+ccs_config                             https://github.com/ESMCI/ccs_config_cesm/tree/ccs_config_cesm1.0.85  **
+cime                                   https://github.com/ESMCI/cime/tree/cime6.2.2                         --
+components/fms                         https://github.com/ESCOMP/FMS_interface/tree/fi_260310               --
+share                                  https://github.com/ESCOMP/CESM_share/tree/share1.1.20                --
+components/cam                         https://github.com/ESCOMP/CAM/cam6_4_173                             --
+components/clm                         https://github.com/ESCOMP/ctsm/tree/ctsm5.4.042                      --
+components/cice                        https://github.com/ESCOMP/CESM_CICE/tree/cesm3_cice6_6_3_16          **
+components/mom                         https://github.com/ESCOMP/MOM_interface/mi_260626                    **
+components/cism                        https://github.com/ESCOMP/cism-wrapper/tree/cismwrap_2_2_015         --
+components/cdeps                       https://github.com/ESCOMP/CDEPS/tree/cdeps1.0.96                     --
+components/cmeps                       https://github.com/ESCOMP/CMEPS/tree/cmeps1.1.48                     --
+components/rtm                         https://github.com/ESCOMP/rtm/tree/rtm1_0_89                         --
+components/ww3                         https://github.com/ESCOMP/WW3-CESM/tree/main_0.1.0                   **
+components/mizuroute                   https://github.com/ESCOMP/mizuRoute/tree/cesm-coupling.v3.1.1        --
+components/mosart                      https://github.com/ESCOMP/mosart/tree/mosart1_1_13                   --
+libraries/parallelio                   https://github.com/NCAR/ParallilIO/tree/pio2_6_8                     --
+libraries/mpi-serial                   https://github.com/ESMCI/mpi-serial/tree/MPIserial_2.5.0             --
+libraries/tuv-x                        https://github.com/NCAR/tuv-x/tree/v0.14.3                           --
+tools/statistical_ensemble_test/pyCECT https://github.com/NCAR/PyCECT/tree/3.2.1                            --
+tools/CUPiD                            https://github.com/NCAR/CUPiD/tree/v0.5.1                            --
+
+ccs_config
+    Kate Thayer-Calder 2026-06-25 - ccs_config_cesm1.0.85 - ccs_config (cesm3_0_alpha09d)
+    https://github.com/ESMCI/ccs_config_cesm/tags/ccs_config_cesm1.0.85
+
+    Derecho machine updates for Tutorial queue
+
+
+    Kate Thayer-Calder 2026-06-24 - ccs_config_cesm1.0.84 - ccs_config (cesm3_0_alpha09d)
+    https://github.com/ESMCI/ccs_config_cesm/tags/ccs_config_cesm1.0.84
+
+    Add MOM 2 degree grids and aliases
+
+
+cice
+    Kate Thayer-Calder 2026-06-24 - cesm3_cice6_6_3_16 - components/cice (cesm3_0_alpha09d)
+    https://github.com/ESCOMP/CESM_CICE/tags/cesm3_cice6_6_3_16
+
+    Add 2 degree
+
+
+mom
+    Kate Thayer-Calder 2026-06-24 - mi_260625 - components/mom (cesm3_0_alpha09d)
+    https://github.com/ESCOMP/MOM_interface/tags/mi_260626
+
+    Add support for 2 degree ocean
+
+
+ww3
+    Alper Altuntas 2026-06-24 - main_0.1.0 - components/ww3 (cesm3_0_alpha09d)
+    https://github.com/ESCOMP/WW3_interface/tags/main_0.1.0
+
+    Latest dev/ufs-weather-model sync
+
+
+--============================================================
+Tag name: cesm3_0_alpha09c
+Originator(s): CSEG
+Date: 29th May 2026
+One-line Summary: CTSM updates
+
+ccs_config                             https://github.com/ESMCI/ccs_config_cesm/tree/ccs_config_cesm1.0.83  --
+cime                                   https://github.com/ESMCI/cime/tree/cime6.2.2                         **
+components/fms                         https://github.com/ESCOMP/FMS_interface/tree/fi_260310               --
+share                                  https://github.com/ESCOMP/CESM_share/tree/share1.1.20                --
+components/cam                         https://github.com/ESCOMP/CAM/cam6_4_173                             --
+components/clm                         https://github.com/ESCOMP/ctsm/tree/ctsm5.4.042                      **
+components/cice                        https://github.com/ESCOMP/CESM_CICE/tree/cesm3_cice6_6_3_15          --
+components/mom                         https://github.com/ESCOMP/MOM_interface/mi_260506                    --
+components/cism                        https://github.com/ESCOMP/cism-wrapper/tree/cismwrap_2_2_015         **
+components/cdeps                       https://github.com/ESCOMP/CDEPS/tree/cdeps1.0.96                     **
+components/cmeps                       https://github.com/ESCOMP/CMEPS/tree/cmeps1.1.48                     --
+components/rtm                         https://github.com/ESCOMP/rtm/tree/rtm1_0_89                         --
+components/ww3                         https://github.com/ESCOMP/WW3-CESM/tree/main_0.0.19                  --
+components/mizuroute                   https://github.com/ESCOMP/mizuRoute/tree/cesm-coupling.v3.1.1        **
+components/mosart                      https://github.com/ESCOMP/mosart/tree/mosart1_1_13                   --
+libraries/parallelio                   https://github.com/NCAR/ParallilIO/tree/pio2_6_8                     --
+libraries/mpi-serial                   https://github.com/ESMCI/mpi-serial/tree/MPIserial_2.5.0             --
+libraries/tuv-x                        https://github.com/NCAR/tuv-x/tree/v0.14.3                           --
+tools/statistical_ensemble_test/pyCECT https://github.com/NCAR/PyCECT/tree/3.2.1                            --
+tools/CUPiD                            https://github.com/NCAR/CUPiD/tree/v0.5.1                            --
+
+cdeps
+    Erik Kluzek 2026-05-28 - cdeps1.0.96 - components/cdeps (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/CDEPS/tags/cdeps1.0.96
+
+    cdeps1.0.96: Temporarily remove datm cplhist test
+    cdeps1.0.95: Fix problems from cdeps1.0.94 (move files from scratch)
+
+
+cime
+    Erik Kluzek 2026-05-28 - cime6.2.2 - cime (cesm3_0_alpha09c)
+    https://github.com/ESMCI/cime/tags/cime6.2.2
+
+    cime6.2.2: Improve cdash description
+    cime6.2.1: Fix safe_copy
+
+
+cism
+    Kate Thayer-Calder 2026-05-22 - cismwrap_2_2_015 - components/cism (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/cism-wrapper/tags/cismwrap_2_2_015
+
+    Add support for the ERP (exact restart with changing processor counts) test in CISM.
+    Causes answer changes in any compset that includes active CISM
+    (not for DGLC, SGLC or CISM-noevolve)
+
+
+clm
+    Samuel Levis 2026-05-23 - ctsm5.4.042 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.042
+
+    hillslope_fsat_equals_zero was intended to be .true. for use_hillslope = .true.
+    but was coming back false:
+    - First because of the lack of this line in CLMBuildNamelist.pm:
+      $nl_flags->{'use_hillslope'} = $nl->get_value('use_hillslope');
+    - And since ctsm5.4.040 due to the placement of said line in
+    sub setup_logic_params_file, which is called after sub setup_logic_hillslope
+
+    Here I moved that line into sub setup_logic_hillslope,
+    which fixes the problem without breaking anything else.
+    Answers change more than roundoff for hillslope hydrology cases.
+
+
+    Sam Rabin 2026-05-22 - ctsm5.4.041 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.041
+
+    Mostly docs updates; some tools cleanup.
+
+
+    Samuel Levis 2026-05-20 - ctsm5.4.040 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.040
+
+    Update CLM6 paramfiles for uncoupled and coupled cases, plus add new paramfile for hillslope hydrology cases.
+
+    Answers change in CLM6 cases.
+
+
+    Samuel Levis 2026-05-14 - ctsm5.4.039 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.039
+
+    Add FATES namelist option to initialize cohorts with diameter at breast height (DBH).
+    The new option is default off, so answers are b4b relative to the baseline.
+
+
+    Samuel Levis 2026-05-14 - ctsm5.4.038 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.038
+
+    Documentation updates.
+
+
+    Sam Rabin 2026-05-06 - ctsm5.4.037 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.037
+
+    Fix for FATES year-boundary restart issue
+
+
+    Sam Rabin 2026-05-06 - ctsm5.4.036 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.036
+
+    Fates CN capability
+
+
+    Erik Kluzek 2026-04-26 - ctsm5.4.035 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.035
+
+    Merge b4b-dev to master
+
+    Update submodules
+    Documentation updates
+    Don't allow irrigate to be on with FATES
+
+
+    Adrianna Foster 2026-04-22 - ctsm5.4.034 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.034
+
+    bug fix to the FATES land use driver input code
+    only changes answers for FATES land use runs
+
+
+    Erik Kluzek 2026-04-17 - ctsm5.4.033 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.033
+
+    FATES update fixing some failing LUH2 tests
+
+    Changes answers only for FATES tests
+
+
+    Sam Rabin 2026-04-10 - ctsm5.4.032 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.032
+
+    Simplify messaging during docs build
+
+
+    Sam Rabin 2026-04-10 - ctsm5.4.031 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.031
+
+    Merge various bit-for-bit identical changes
+
+
+    Sam Rabin 2026-04-07 - ctsm5.4.030 - components/clm (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/ctsm/tags/ctsm5.4.030
+
+    Add a FATES namelist option for land use transition logic
+
+
+mizuRoute
+    Erik Kluzek 2026-04-15 - v3.1.1 - components/mizuroute (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/mizuRoute/tags/v3.1.1
+
+    Fix some nag compiler issues
+    Flood volume correction
+    Turn flood mode off by default
+
+
+    Erik Kluzek 2026-03-16 - v3.1.0 - components/mizuroute (cesm3_0_alpha09c)
+    https://github.com/ESCOMP/mizuRoute/tags/v3.1.0
+
+    Important updates for running correctly for fully coupled cases
+    Documentation updates
+    Some changes to answers with science bug-fixes
+    Refactoring for tracers
+    Several bug fixes
+
+
+==============================================================
+Tag name: cesm3_0_alpha09b
+Originator(s): CSEG
+Date: 18th May 2026
+One-line Summary: CAM updates
+
+ccs_config                             https://github.com/ESMCI/ccs_config_cesm/tree/ccs_config_cesm1.0.83  --
+cime                                   https://github.com/ESMCI/cime/tree/cime6.2.0                         **
+components/fms                         https://github.com/ESCOMP/FMS_interface/tree/fi_260310               --
+share                                  https://github.com/ESCOMP/CESM_share/tree/share1.1.20                **
+components/cam                         https://github.com/ESCOMP/CAM/cam6_4_173                             **
+components/clm                         https://github.com/ESCOMP/ctsm/tree/ctsm5.4.027                      --
+components/cice                        https://github.com/ESCOMP/CESM_CICE/tree/cesm3_cice6_6_3_15          --
+components/mom                         https://github.com/ESCOMP/MOM_interface/mi_260506                    --
+components/cism                        https://github.com/ESCOMP/cism-wrapper/tree/cismwrap_2_2_014         **
+components/cdeps                       https://github.com/ESCOMP/CDEPS/tree/cdeps1.0.94                     --
+components/cmeps                       https://github.com/ESCOMP/CMEPS/tree/cmeps1.1.48                     **
+components/rtm                         https://github.com/ESCOMP/rtm/tree/rtm1_0_89                         --
+components/ww3                         https://github.com/ESCOMP/WW3-CESM/tree/main_0.0.19                  --
+components/mizuroute                   https://github.com/ESCOMP/mizuRoute/tree/cesm-coupling.v3.0.1        --
+components/mosart                      https://github.com/ESCOMP/mosart/tree/mosart1_1_13                   --
+libraries/parallelio                   https://github.com/NCAR/ParallilIO/tree/pio2_6_8                     --
+libraries/mpi-serial                   https://github.com/ESMCI/mpi-serial/tree/MPIserial_2.5.0             --
+libraries/tuv-x                        https://github.com/NCAR/tuv-x/tree/v0.14.3                           --
+tools/statistical_ensemble_test/pyCECT https://github.com/NCAR/PyCECT/tree/3.2.1                            --
+tools/CUPiD                            https://github.com/NCAR/CUPiD/tree/v0.5.1                            --
+
+cam
+    Cheryl Craig 2026-05-12 - cam6_4_173 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_xxx
+
+    For Haipeng Lin
+
+    Fix energy bugs in physics-dynamics coupling, RRTMGP diagnostics, and ZM scheme
+
+    From Peter Lauritzen: "Expecting failures against baseline for all tests using SE dycore
+    (only tests without moisture should not fail)"
+
+    ZM changes to fix energy factor (missing 1/2) to fix energy leaks change answers for all compsets using ZM (CAM4,5,6,7)
+
+
+    Cheryl Craig 2026-05-12 - cam6_4_172 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_172
+
+    For Francis Vitt
+
+    Aqueous chemistry fixes
+
+
+    Cheryl Craig 2026-04-30 - cam6_4_171 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_171
+
+    For Francis Vitt
+
+    Photochem namelist updates
+
+
+    Cheryl Craig 2026-04-30 - cam6_4_170 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_170
+
+    For Francis Vitt
+
+    Update to TEM diags
+
+
+    Cheryl Craig 2026-04-30 - cam6_4_169 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_169
+
+    For Francis Vitt
+
+    CARMA with RRTMGP
+
+
+    Haipeng Lin 2026-04-24 - cam6_4_168 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_168
+
+    Mini misc tag: ZM reserved ice cleanup; zmconv_tiedtke_add typo; HEMCO_CESM external update; ccpp_scheme_utils stub update
+
+    (NLFAIL expected due to rename of zmconv_tiedtke_add to correct spelling.)
+
+
+    Cheryl Craig 2026-04-21 - cam6_4_167 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_167
+
+    For Francis Vitt
+    1850 MTt4s namelist defaults
+
+
+    Cheryl Craig 2026-04-21 - cam6_4_166 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_166
+
+    CLUBB update and clubb_intr improvements
+
+    Answer changing for all CLUBB runs
+
+
+    Cheryl Craig 2026-04-17 - cam6_4_165 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_165
+
+    Implement POLARCAP & NATL grids + L58/L93 inic for all SE-VR grids + ne120pg3
+
+    Answer changing for VR grids
+
+
+    Cheryl Craig 2026-04-15 - cam6_4_164 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_164
+
+    Misc tag before CESM3 release
+
+
+    Haipeng Lin 2026-04-12 - cam6_4_163 - components/cam (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CAM/tags/cam6_4_163
+
+    Refactor rad_constituents, aerosol_optics_cam for portability; extend abstract aerosol interface
+
+    (All B4B, refactors for sharing aerosol infrastructure code with CAM-SIMA.)
+
+
+cime
+    Chris Fischer 2026-05-18 - cime6.2.0 - cime (cesm3_0_alpha09b)
+    https://github.com/ESMCI/cime/tags/cime6.2.0
+
+      cime6.2.0: Reset only the CMake cache (CMakeCache.txt and the small bookkeeping files in CMakeFiles/) without touching compiled object files.
+    cime6.1.180: The variable DRV_RESTART_POINTER is only provided by cmeps and should not be required for the ERR test
+
+
+cism
+    Kate Thayer-Calder 2026-04-07 - cismwrap_2_2_014 - components/cism (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/cism-wrapper/tags/cismwrap_2_2_014
+
+    Updated externals to Beta07. No problems with the new compilers.
+
+
+cmeps
+    Chris Fischer 2026-05-18 - cmeps1.1.48 - src/drivers/nuopc/ (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CMEPS/tags/cmeps1.1.48
+
+    cmeps1.1.48: Add water tracers.  Changes answers for X compsets.
+    cmeps1.1.47: Only run srt workflow when manually triggered.
+
+
+share
+    Chris Fischer 2026-05-18 - share1.1.20 - share (cesm3_0_alpha09b)
+    https://github.com/ESCOMP/CESM_share/tags/share1.1.20
+
+    Add more infrastructure for water tracers, needed by CMEPS.
+
+==============================================================
+Tag name: cesm3_0_alpha09a
+Originator(s): CSEG
+Date: 7th April 2026
+One-line Summary: MOM6 and WW3 changes
+
+ccs_config                             https://github.com/ESMCI/ccs_config_cesm/tree/ccs_config_cesm1.0.83  **
+cime                                   https://github.com/ESMCI/cime/tree/cime6.1.179                       **
+components/fms                         https://github.com/ESCOMP/FMS_interface/tree/fi_260310               **
+share                                  https://github.com/ESCOMP/CESM_share/tree/share1.1.19                --
+components/cam                         https://github.com/ESCOMP/CAM/cam6_4_161                             --
+components/clm                         https://github.com/ESCOMP/ctsm/tree/ctsm5.4.027                      --
+components/cice                        https://github.com/ESCOMP/CESM_CICE/tree/cesm3_cice6_6_3_15          **
+components/mom                         https://github.com/ESCOMP/MOM_interface/mi_260506                    **
+components/cism                        https://github.com/ESCOMP/cism-wrapper/tree/cismwrap_2_2_013         --
+components/cdeps                       https://github.com/ESCOMP/CDEPS/tree/cdeps1.0.94                     **
+components/cmeps                       https://github.com/ESCOMP/CMEPS/tree/cmeps1.1.46                     **
+components/rtm                         https://github.com/ESCOMP/rtm/tree/rtm1_0_89                         --
+components/ww3                         https://github.com/ESCOMP/WW3-CESM/tree/main_0.0.19                  --
+components/mizuroute                   https://github.com/ESCOMP/mizuRoute/tree/cesm-coupling.v3.0.1        --
+components/mosart                      https://github.com/ESCOMP/mosart/tree/mosart1_1_13                   --
+libraries/parallelio                   https://github.com/NCAR/ParallilIO/tree/pio2_6_8                     --
+libraries/mpi-serial                   https://github.com/ESMCI/mpi-serial/tree/MPIserial_2.5.0             --
+libraries/tuv-x                        https://github.com/NCAR/tuv-x/tree/v0.14.3                           --
+tools/statistical_ensemble_test/pyCECT https://github.com/NCAR/PyCECT/tree/3.2.1                            --
+tools/CUPiD                            https://github.com/NCAR/CUPiD/tree/v0.5.1                            --
+
+ccs_config
+    Alper Altuntas 2026-05-06 - ccs_config_cesm1.0.83 - ccs_config (cesm3_0_alpha09a)
+    https://github.com/ESMCI/ccs_config_cesm/tags/ccs_config_cesm1.0.83
+
+    ccs_config_cesm1.0.83: Add new files and aliases for tx2_3v3
+    ccs_config_cesm1.0.82: New option in visualCaseGento specify grids with xml variables
+    ccs_config_cesm1.0.81: Bypass the LLVM optimization pass for NVHPC compiler.
+    ccs_config_cesm1.0.80: Update Casper configuration for MI300A node.
+
+
+cdeps
+    Chris Fischer 2026-05-07 - cdeps1.0.94 - components/cdeps (cesm3_0_alpha09a)
+    https://github.com/ESCOMP/CDEPS/tags/cdeps1.0.94
+
+    Move co2diag from 3hourly to daily for CPLHIST mode
+
+
+cice
+    Chris Fischer 2026-05-11 - cesm3_cice6_6_3_15 - components/cice (cesm3_0_alpha09a)
+    https://github.com/ESCOMP/CESM_CICE/tags/cesm3_cice6_6_3_15
+
+    cesm3_cice6_6_3_15: Turn off halo masking for prescribed cases
+    cesm3_cice6_6_3_14: Added CESM3 CICE users guide
+    cesm3_cice6_6_3_13: Fix snwredist option
+
+    David Bailey 2026-04-28 - cesm3_cice6_6_3_12 - components/cice (cesm3_0_alpha09a)
+    https://github.com/ESCOMP/CESM_CICE/tags/cesm3_cice6_6_3_13
+
+    - add support for tx2_3v3 grid
+    - remove daily history
+
+
+cime
+    Chris Fischer 2026-05-07 - cime6.1.179 - cime (cesm3_0_alpha09a)
+    https://github.com/ESMCI/cime/tags/cime6.1.179
+
+    cime6.1.179: Fix skills
+    cime6.1.178: Adds copilot agents and skills
+    cime6.1.177: Fix --mail-type args to use comma-separated values instead of repeated flags
+
+
+    Michael Levy 2026-04-15 - cime6.1.170 - cime (cesm3_0_alpha09a)
+    https://github.com/ESMCI/cime/tags/cime6.1.176
+
+    Minor improvements to the oddball HOMME cime tests
+
+
+    Michael Levy 2026-04-15 - cime6.1.176 - cime (cesm3_0_alpha09a)
+    https://github.com/ESMCI/cime/tags/cime6.1.176
+
+    Fix regular expression leading to erroneous NLCOMP failures
+
+
+    Michael Levy 2026-04-15 - cime6.1.175 - cime (cesm3_0_alpha09a)
+    https://github.com/ESMCI/cime/tags/cime6.1.175
+
+    Add a comment in eri.py about a possible error this can catch
+
+
+    Michael Levy 2026-04-15 - cime6.1.174 - cime (cesm3_0_alpha09a)
+    https://github.com/ESMCI/cime/tags/cime6.1.174
+
+    Allow extending baseline phase
+
+
+    Michael Levy 2026-04-15 - cime6.1.173 - cime (cesm3_0_alpha09a)
+    https://github.com/ESMCI/cime/tags/cime6.1.173
+
+    Improve baseline handling when regenerating baselines
+
+
+    Michael Levy 2026-04-15 - cime6.1.172 - cime (cesm3_0_alpha09a)
+    https://github.com/ESMCI/cime/tags/cime6.1.172
+
+    Fix container paths
+
+
+    Michael Levy 2026-04-15 - cime6.1.171 - cime (cesm3_0_alpha09a)
+    https://github.com/ESMCI/cime/tags/cime6.1.171
+
+    Pre-build CPRNC in the container
+
+
+cmeps
+    Alper Altuntas 2026-05-07 - cmeps1.1.46 - src/drivers/nuopc/ (cesm3_0_alpha09a)
+    https://github.com/ESCOMP/CMEPS/tags/cmeps1.1.46
+
+    cmeps1.1.46: Use ice heat capacity and fixed temperature for ice runoff enthalpy PRs #647. Answer changes for MOM6
+    cmeps1.1.45: Fix ERS tests for compsets with WW3
+    cmeps1.1.44: Remove unused Faxa_ vars
+    cmeps1.1.43: Fixes an error when building with `-check all`
+
+
+fms
+    Alper Altuntas 2026-03-10 - fi_260310 - libraries/fms (cesm3_0_alpha09a)
+    https://github.com/ESCOMP/FMS_interface/tags/fi_260310
+
+    - increase MAX_FIELDS_PER_FILE from 500 to 750
+    - Fix history file ensemble suffix.
+
+
+mom
+    Alper Altuntas 2026-02-23 - mi_260506 - components/mom (cesm3_0_alpha09a)
+    https://github.com/ESCOMP/MOM_interface/tags/mi_2603xx
+
+    Latest MOM6 configuration changes and bug fixes for CESM3.
+
+
+
+==============================================================
 Tag name: cesm3_0_beta08
 Originator(s): CSEG
 Date: 2nd April 2026
