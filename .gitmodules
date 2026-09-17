@@ -37,7 +37,7 @@
         path = cime
         url = https://github.com/CROCODILE-CESM/cime.git
         fxDONOTUSEurl = https://github.com/CROCODILE-CESM/cime.git
-	fxtag = vdart-cime6.2.2
+	fxtag = vdart-cime6.4.1
         fxrequired = ToplevelRequired
 
 [submodule "fms"]
