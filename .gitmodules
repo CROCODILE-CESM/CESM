@@ -35,9 +35,9 @@
 
 [submodule "cime"]
         path = cime
-        url = https://github.com/ESMCI/cime
-        fxDONOTUSEurl = https://github.com/ESMCI/cime
-	fxtag = cime6.4.1
+        url = https://github.com/CROCODILE-CESM/cime.git
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/cime.git
+	fxtag = vdart-cime6.4.1
         fxrequired = ToplevelRequired
 
 [submodule "fms"]
@@ -98,10 +98,10 @@
 
 [submodule "cmeps"]
         path = components/cmeps
-        url = https://github.com/ESCOMP/CMEPS.git
-        fxDONOTUSEurl = https://github.com/ESCOMP/CMEPS.git
+        url = https://github.com/CROCODILE-CESM/CMEPS.git 
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/CMEPS.git 
         fxrequired = ToplevelRequired
-	fxtag = cmeps1.1.62
+	fxtag = vdart-cmeps1.1.62
 
 [submodule "rtm"]
         path = components/rtm
@@ -172,3 +172,10 @@
   fxtag = v0.0.5
   fxrequired = ToplevelOptional
   fxDONOTUSEurl = https://github.com/ESCOMP/FTorch_interface
+
+[submodule "dart"]
+	path = components/dart
+	url = https://github.com/CROCODILE-CESM/DART_interface.git
+	fxDONOTUSEurl = https://github.com/CROCODILE-CESM/DART_interface.git
+        fxrequired = ToplevelRequired
+        fxtag = croc-0.0.7
