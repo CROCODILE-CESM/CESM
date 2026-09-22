@@ -73,7 +73,7 @@
         url = https://github.com/ESCOMP/CESM_CICE
         fxDONOTUSEurl = https://github.com/ESCOMP/CESM_CICE
         fxrequired = ToplevelRequired
-        fxtag = cesm3_cice6_6_3_16
+        fxtag = cesm3_cice6_6_3_22
 
 [submodule "mom"]
         path = components/mom
