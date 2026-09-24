@@ -73,14 +73,14 @@
         url = https://github.com/ESCOMP/CESM_CICE
         fxDONOTUSEurl = https://github.com/ESCOMP/CESM_CICE
         fxrequired = ToplevelRequired
-        fxtag = cesm3_cice6_6_3_16
+        fxtag = cesm3_cice6_6_3_22
 
 [submodule "mom"]
         path = components/mom
-        url = https://github.com/ESCOMP/MOM_interface
-        fxDONOTUSEurl = https://github.com/ESCOMP/MOM_interface
+        url = https://github.com/CROCODILE-CESM/MOM_interface
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/MOM_interface
         fxrequired = ToplevelRequired
-        fxtag = mi_260715
+        fxtag = regional_092326
 
 [submodule "cism"]
         path = components/cism
@@ -101,7 +101,7 @@
         url = https://github.com/ESCOMP/CMEPS.git
         fxDONOTUSEurl = https://github.com/ESCOMP/CMEPS.git
         fxrequired = ToplevelRequired
-	fxtag = cmeps1.1.54
+	fxtag = cmeps1.1.62
 
 [submodule "rtm"]
         path = components/rtm
@@ -112,9 +112,9 @@
 
 [submodule "ww3"]
         path = components/ww3
-        url = https://github.com/ESCOMP/WW3_interface
-        fxDONOTUSEurl = https://github.com/ESCOMP/WW3_interface
-        fxtag = main_0.1.0
+        url = https://github.com/CROCODILE-CESM/WW3_interface
+        fxDONOTUSEurl = https://github.com/CROCODILE-CESM/WW3_interface
+        fxtag = regional
         fxrequired = ToplevelRequired
 
 [submodule "mizuroute"]
